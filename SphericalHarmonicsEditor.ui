@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SphericalHarmonicsEditor</class>
+ <widget class="QDialog" name="SphericalHarmonicsEditor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>273</width>
+    <height>122</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Spherical Harmonics</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);</string>
+         </property>
+         <property name="text">
+          <string>Coefficient 1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxM0">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);
+background-color: rgb(76, 76, 76);
+</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_8">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);</string>
+         </property>
+         <property name="text">
+          <string>Power 1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxM1">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);
+background-color: rgb(76, 76, 76);</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);</string>
+         </property>
+         <property name="text">
+          <string>Coefficient 2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxM2">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);
+background-color: rgb(76, 76, 76);</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="label_7">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);</string>
+         </property>
+         <property name="text">
+          <string>Power 2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxM3">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);
+background-color: rgb(76, 76, 76);</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);</string>
+         </property>
+         <property name="text">
+          <string>Coefficient 3</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxM4">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);
+background-color: rgb(76, 76, 76);</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QLabel" name="label_6">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);</string>
+         </property>
+         <property name="text">
+          <string>Power 3</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxM5">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);
+background-color: rgb(76, 76, 76);</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);</string>
+         </property>
+         <property name="text">
+          <string>Coefficient 4</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxM6">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);
+background-color: rgb(76, 76, 76);</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLabel" name="label_5">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);</string>
+         </property>
+         <property name="text">
+          <string>Power 4</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QDoubleSpinBox" name="doubleSpinBoxM7">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 0);
+background-color: rgb(76, 76, 76);</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
