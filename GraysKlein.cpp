@@ -7,11 +7,11 @@
 
 
 GraysKlein::GraysKlein(QOpenGLShaderProgram* prog, GLfloat radius, GLuint nSlices, GLuint nStacks) :
-	ParametricSurface(prog, nSlices, nStacks),
-	_radius(radius),
+	ParametricSurface(prog, nSlices, nStacks),	
 	_A(2),
 	_M(1),
-	_N(2)
+    _N(2),
+    _radius(radius)
 {
 	_name = "Gray's Klein Bottle";
 	buildMesh(nSlices, nStacks);

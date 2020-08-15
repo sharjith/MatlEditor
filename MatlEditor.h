@@ -13,7 +13,7 @@ public:
 	MatlEditor(QWidget* parent = 0);
 	~MatlEditor();
 
-	GLView* const getGLView() const { return _glView; }
+    GLView* getGLView() const { return _glView; }
 
 private slots:	
 	void on_modelButtonNext_clicked();

@@ -155,7 +155,7 @@ void TriangleMesh::computeBoundingSphere(std::vector<GLfloat> points)
 	
 	// Ritter's algorithm
 	std::vector<QVector3D> aPoints;
-	for (int i = 0; i < points.size(); i += 3)
+    for (ulong i = 0; i < points.size(); i += 3)
 	{
 		aPoints.push_back(QVector3D(points[i], points[i + 1], points[i + 2]));
 	}

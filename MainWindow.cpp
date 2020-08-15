@@ -34,7 +34,7 @@ void MainWindow::on_actionExit_triggered(bool /*checked*/)
 
 void MainWindow::on_actionAbout_triggered(bool /*checked*/)
 {
-	QMessageBox::about(this, "About Material Editor", "Application to demonstrate OpenGL");
+    QMessageBox::about(this, "About Material Editor", "Application to demonstrate Modern OpenGL");
 }
 
 void MainWindow::on_actionAbout_Qt_triggered(bool /*checked*/)

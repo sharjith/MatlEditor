@@ -56,6 +56,7 @@ Point SuperEllipsoid::pointAtParameter(const float& u, const float& v)
 	// z = r * sin^n1(u)
 	// Where u = -2PI - 2PI and v = -PI - PI
 
+    /*
 	auto power = [](double f, double p)->double
 	{
 		int sign;
@@ -70,7 +71,7 @@ Point SuperEllipsoid::pointAtParameter(const float& u, const float& v)
 			return(sign * pow(absf, p));
 	};
 
-	/*x = _radius * power(cos(u), _n1) * power(cos(v), _n2);
+    x = _radius * power(cos(u), _n1) * power(cos(v), _n2);
 	y = _radius * power(cos(u), _n1) * power(sin(v), _n2);
 	z = _radius * power(sin(u), _n1);*/
 

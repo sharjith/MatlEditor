@@ -11,9 +11,9 @@
 #include <iostream>
 
 ParametricSurface::ParametricSurface(QOpenGLShaderProgram* prog, GLuint nSlices, GLuint nStacks) : 
-	_slices(nSlices), 
-	_stacks(nStacks), 
-	QuadMesh(prog, "Prametric Surface")
+        QuadMesh(prog, "Prametric Surface"),
+        _slices(nSlices),
+        _stacks(nStacks)
 {
 
 }

@@ -26,135 +26,138 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 # Input
 HEADERS += AABB.h \
-           AppleSurface.h \
-           BentHorns.h \
-		   BoundingSphere.h \
-           BowTie.h \
-           BoySurface.h \
-		   BreatherSurface.h \
-           Cone.h \
-           ConeShell.h \
-           Crescent.h \
-           Cube.h \
-           Cylinder.h \
-           DoubleCone.h \
-           Drawable.h \
-           Figure8KleinBottle.h \
-           Folium.h \
-           GLView.h \
-		   GLCamera.h \
-           GraysKlein.h \
-           Horn.h \
-           IDrawable.h \
-           IParametricSurface.h \
-           KleinBottle.h \
-           LimpetTorus.h \
-           MatlEditor.h \
-		   MainWindow.h \
-           ObjMesh.h \
-           ParametricSurface.h \
-           Periwinkle.h \
-           Plane.h \
-           Point.h \
-		   QuadMesh.h \
-           Resource.h \
-           SaddleTorus.h \
-           Sphere.h \
-           SphericalHarmonic.h \
-           SpindleShell.h \
-           SteinerSurface.h \
-		   SuperToroid.h \
-		   SuperEllipsoid.h \
-		   Spring.h \
-           Teapot.h \
-           TeapotData.h \
-           TextRenderer.h \
-           TopShell.h \
-           Torus.h \
-           TriangleMesh.h \
-           TriaxialHexatorus.h \
-           TriaxialTritorus.h \
-           TwistedPseudoSphere.h \
-           TwistedTriaxial.h \
-		   TurretShell.h \
-           ui_MatlEditor.h \
-           VerrillMinimal.h \
-           WrinkledPeriwinkle.h \
-           ParametricSurface.h \
-    SphericalHarmonicsEditor.h \
-    ClippingPlanesEditor.h \
-	GraysKleinEditor.h \
-	SuperToroidEditor.h \
-	SuperEllipsoidEditor.h \
-	SpringEditor.h
+AppleSurface.h \
+BentHorns.h \
+BoundingSphere.h \
+BowTie.h \
+BoySurface.h \
+BreatherSurface.h \
+Cone.h \
+ConeShell.h \
+Crescent.h \
+Cube.h \
+Cylinder.h \
+DoubleCone.h \
+Drawable.h \
+Figure8KleinBottle.h \
+Folium.h \
+GLView.h \
+GLCamera.h \
+GraysKlein.h \
+Horn.h \
+IDrawable.h \
+IParametricSurface.h \
+KleinBottle.h \
+LimpetTorus.h \
+MatlEditor.h \
+MainWindow.h \
+ObjMesh.h \
+ParametricSurface.h \
+Periwinkle.h \
+Plane.h \
+Point.h \
+QuadMesh.h \
+Resource.h \
+SaddleTorus.h \
+Sphere.h \
+SphericalHarmonic.h \
+SpindleShell.h \
+SteinerSurface.h \
+SuperToroid.h \
+SuperEllipsoid.h \
+Spring.h \
+Teapot.h \
+TeapotData.h \
+TextRenderer.h \
+TopShell.h \
+Torus.h \
+TriangleMesh.h \
+TriaxialHexatorus.h \
+TriaxialTritorus.h \
+TwistedPseudoSphere.h \
+TwistedTriaxial.h \
+TurretShell.h \
+ui_MatlEditor.h \
+VerrillMinimal.h \
+WrinkledPeriwinkle.h \
+ParametricSurface.h \
+SphericalHarmonicsEditor.h \
+ClippingPlanesEditor.h \
+GraysKleinEditor.h \
+SuperToroidEditor.h \
+SuperEllipsoidEditor.h \
+SpringEditor.h
 FORMS += MatlEditor.ui \
-	MainWindow.ui \
-    SphericalHarmonicsEditor.ui \
-    ClippingPlanesEditor.ui \
-	GraysKleinEditor.ui \
-	SuperToroidEditor.ui \
-	SuperEllipsoidEditor.ui \
-	SpringEditor.ui
+MainWindow.ui \
+SphericalHarmonicsEditor.ui \
+ClippingPlanesEditor.ui \
+GraysKleinEditor.ui \
+SuperToroidEditor.ui \
+SuperEllipsoidEditor.ui \
+SpringEditor.ui
 SOURCES += AppleSurface.cpp \
-           BentHorns.cpp \
-		   BoundingSphere.cpp \
-           BowTie.cpp \
-           BoySurface.cpp \
-		   BreatherSurface.cpp \
-           Cone.cpp \
-           ConeShell.cpp \
-           Crescent.cpp \
-           Cube.cpp \
-           Cylinder.cpp \
-           DoubleCone.cpp \
-           Figure8KleinBottle.cpp \
-           Folium.cpp \
-           GLView.cpp \
-		   GLCamera.cpp \
-           GraysKlein.cpp \
-           Horn.cpp \
-           KleinBottle.cpp \
-           LimpetTorus.cpp \
-           main.cpp \
-           MatlEditor.cpp \
-		   MainWindow.cpp \
-           ObjMesh.cpp \
-           ParametricSurface.cpp \
-           Periwinkle.cpp \
-           Plane.cpp \
-           Point.cpp \
-		   QuadMesh.cpp \
-           SaddleTorus.cpp \
-           Sphere.cpp \
-           SphericalHarmonic.cpp \
-           SpindleShell.cpp \
-           SteinerSurface.cpp \
-		   SuperToroid.cpp \
-		   SuperEllipsoid.cpp \
-		   Spring.cpp \
-           Teapot.cpp \
-           TextRenderer.cpp \
-           TopShell.cpp \
-           Torus.cpp \
-           TriangleMesh.cpp \
-           TriaxialHexatorus.cpp \
-           TriaxialTritorus.cpp \
-           TwistedPseudoSphere.cpp \
-           TwistedTriaxial.cpp \
-		   TurretShell.cpp \
-           VerrillMinimal.cpp \
-           WrinkledPeriwinkle.cpp \        
-    SphericalHarmonicsEditor.cpp \
-    ClippingPlanesEditor.cpp \
-	GraysKleinEditor.cpp \
-	SuperToroidEditor.cpp \
-	SuperEllipsoidEditor.cpp \
-	SpringEditor.cpp	
+BentHorns.cpp \
+BoundingSphere.cpp \
+BowTie.cpp \
+BoySurface.cpp \
+BreatherSurface.cpp \
+Cone.cpp \
+ConeShell.cpp \
+Crescent.cpp \
+Cube.cpp \
+Cylinder.cpp \
+DoubleCone.cpp \
+Figure8KleinBottle.cpp \
+Folium.cpp \
+GLView.cpp \
+GLCamera.cpp \
+GraysKlein.cpp \
+Horn.cpp \
+KleinBottle.cpp \
+LimpetTorus.cpp \
+main.cpp \
+MatlEditor.cpp \
+MainWindow.cpp \
+ObjMesh.cpp \
+ParametricSurface.cpp \
+Periwinkle.cpp \
+Plane.cpp \
+Point.cpp \
+QuadMesh.cpp \
+SaddleTorus.cpp \
+Sphere.cpp \
+SphericalHarmonic.cpp \
+SpindleShell.cpp \
+SteinerSurface.cpp \
+SuperToroid.cpp \
+SuperEllipsoid.cpp \
+Spring.cpp \
+Teapot.cpp \
+TextRenderer.cpp \
+TopShell.cpp \
+Torus.cpp \
+TriangleMesh.cpp \
+TriaxialHexatorus.cpp \
+TriaxialTritorus.cpp \
+TwistedPseudoSphere.cpp \
+TwistedTriaxial.cpp \
+TurretShell.cpp \
+VerrillMinimal.cpp \
+WrinkledPeriwinkle.cpp \
+SphericalHarmonicsEditor.cpp \
+ClippingPlanesEditor.cpp \
+GraysKleinEditor.cpp \
+SuperToroidEditor.cpp \
+SuperEllipsoidEditor.cpp \
+SpringEditor.cpp
 RESOURCES += MatlEditor.qrc
 
-OTHER_FILES += shaders/background.vert \
-shaders/background.frag \
-shaders/twoside.vert \
-shaders/twoside.frag \
-shaders/text.vert \
-shaders/text.frag
+OTHER_FILES += \
+shaders/background.frag   shaders/twoside_per_fragment.frag \
+shaders/blinn-phong.frag  shaders/twoside_per_vertex.frag \
+shaders/splitScreen.frag  shaders/wireframe.frag \
+shaders/text.frag \
+shaders/background.vert   shaders/twoside_per_fragment.vert \
+shaders/blinn-phong.vert  shaders/twoside_per_vertex.vert \
+shaders/splitScreen.vert  shaders/wireframe.vert \
+shaders/text.vert

@@ -810,7 +810,7 @@ void GLView::mouseMoveEvent(QMouseEvent* e)
 
     if (_bRightButtonDown)
     {
-        QPoint translate = downPoint - _rightButtonPoint;
+        //QPoint translate = downPoint - _rightButtonPoint;
 
         QVector3D Z(0, 0, 0); // instead of 0 for x and y we need worldPosition.x() and worldPosition.y() ....
         Z = Z.project(_viewMatrix * _modelMatrix, _projectionMatrix, QRect(0, 0, width(), height()));
@@ -827,7 +827,7 @@ void GLView::mouseMoveEvent(QMouseEvent* e)
 
     if (_bMiddleButtonDown)
     {
-        QPoint zoom = downPoint - _middleButtonPoint;
+        //QPoint zoom = downPoint - _middleButtonPoint;
 
         if (downPoint.x() > _middleButtonPoint.x() || downPoint.y() < _middleButtonPoint.y())
             _viewRange /= 1.05f;
