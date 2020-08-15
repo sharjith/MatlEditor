@@ -447,6 +447,13 @@ void GLView::createTexture(void)
 
     glGenTextures(1, &_texture);
     glBindTexture(GL_TEXTURE_2D, _texture);
+    glTexImage2D(GL_TEXTURE_2D, 0, 3, _texImage.width(), _texImage.height(), 0,
+                 GL_RGBA, GL_UNSIGNED_BYTE, _texImage.bits());
+    glGenerateMipmap(GL_TEXTURE_2D);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 }
 
@@ -496,11 +503,6 @@ void GLView::initializeGL()
 
     _viewMatrix.setToIdentity();
     glEnable(GL_DEPTH_TEST);
-
-    glActiveTexture(GL_TEXTURE0);
-    {
-        _fgShader->setUniformValue("texUnit", 0);
-    }
 
     glClearColor(0.0f, 0.0f, 0.0f, 1.f);
 
@@ -656,14 +658,7 @@ void GLView::paintGL()
 
 void GLView::render()
 {
-    glEnable(GL_DEPTH_TEST);
-    glTexImage2D(GL_TEXTURE_2D, 0, 3, _texImage.width(), _texImage.height(), 0,
-                 GL_RGBA, GL_UNSIGNED_BYTE, _texImage.bits());
-    glGenerateMipmap(GL_TEXTURE_2D);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glEnable(GL_DEPTH_TEST);    
 
     _viewMatrix.setToIdentity();
     _viewMatrix = _camera->getViewMatrix();
@@ -684,6 +679,7 @@ void GLView::render()
     _fgShader->setUniformValue("Line.Width", 0.75f);
     _fgShader->setUniformValue("Line.Color", QVector4D(0.05f, 0.0f, 0.05f, 1.0f));
     _fgShader->setUniformValue("b_wireframe", !_bShaded);
+
     glPolygonMode(GL_FRONT_AND_BACK, _bShaded ? GL_FILL : GL_LINE);
     glLineWidth(_bShaded ? 1.0 : 1.5);
 
@@ -712,7 +708,11 @@ void GLView::render()
     _fgShader->setUniformValue("clipPlaneZ", QVector4D(_modelViewMatrix * (QVector3D(0, 0, _clipZFlipped ? -1 : 1) + pos),
                                                        (_clipZFlipped ? -1 : 1)*pos.z() + _clipZCoeff));
 
+
     // Render
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, _texture);
+    _fgShader->setUniformValue("texUnit", 0);
     _meshStore.at(_modelNum - 1)->render();
 
     glDisable(GL_CLIP_DISTANCE0);
