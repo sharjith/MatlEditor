@@ -103,6 +103,11 @@ protected:
 	void closeEvent(QCloseEvent *event);
 	void moveEvent(QMoveEvent *event);
 
+    QRect getViewportFromPoint(const QPoint& pixel);
+    QRect getClientRectFromPoint(const QPoint& pixel);
+    QVector3D get3dTranslationVectorFromMousePoints(const QPoint& start, const QPoint& end);
+
+
 private:
     int _modelNum;
 	QImage _texImage, _texBuffer;

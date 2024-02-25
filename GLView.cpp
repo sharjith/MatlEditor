@@ -847,20 +847,108 @@ void GLView::mouseMoveEvent(QMouseEvent* e)
 
 void GLView::wheelEvent(QWheelEvent* e)
 {
+    /*
     int delta = static_cast<GLfloat>(e->delta());
 
     if (delta < 0)
         _viewRange *= abs(delta) / 114.2857142857;
     else
         _viewRange /= abs(delta) / 114.2857142857;
+     */
+
+    // Zoom
+    QPoint numDegrees = e->angleDelta() / 8;
+    QPoint numSteps = numDegrees / 15;
+    float zoomStep = numSteps.y();
+    float zoomFactor = abs(zoomStep) + 0.05;
+
+    if (zoomStep < 0)
+        _viewRange *= zoomFactor;
+    else
+        _viewRange /= zoomFactor;
 
     if (_viewRange < 0.05) _viewRange = 0.05f;
     if (_viewRange > 50000.0) _viewRange = 50000.0f;
     _currentViewRange = _viewRange;
 
+    // Translate to focus on mouse center
+    QPoint cen = getClientRectFromPoint(e->position().toPoint()).center();
+    float sign = (e->position().x() > cen.x() || e->position().y() < cen.y() ||
+        (e->position().x() < cen.x() && e->position().y() > cen.y())) && (zoomStep > 0) ? 1.0f : -1.0f;
+    QVector3D OP = get3dTranslationVectorFromMousePoints(cen, e->position().toPoint());
+    OP *= sign * 0.05f;
+    _camera->move(OP.x(), OP.y(), OP.z());
+    _currentTranslation = _camera->getPosition();
+
     resizeGL(width(), height());
 
     update();
+}
+
+QRect GLView::getViewportFromPoint(const QPoint& pixel)
+{
+    QRect viewport;
+    if (_bMultiView)
+    {
+        // top view
+        if (pixel.x() < width() / 2 && pixel.y() > height() / 2)
+            viewport = QRect(0, 0, width() / 2, height() / 2);
+        // front view
+        if (pixel.x() < width() / 2 && pixel.y() < height() / 2)
+            viewport = QRect(0, height() / 2, width() / 2, height() / 2);
+        // left view
+        if (pixel.x() > width() / 2 && pixel.y() < height() / 2)
+            viewport = QRect(width() / 2, height() / 2, width() / 2, height() / 2);
+        // isometric
+        if (pixel.x() > width() / 2 && pixel.y() > height() / 2)
+            viewport = QRect(width() / 2, 0, width() / 2, height() / 2);
+    }
+    else
+    {
+        // single viewport
+        viewport = QRect(0, 0, width(), height());
+    }
+
+    return viewport;
+}
+
+QRect GLView::getClientRectFromPoint(const QPoint& pixel)
+{
+    QRect clientRect;
+    if (_bMultiView)
+    {
+        // top view
+        if (pixel.x() < width() / 2 && pixel.y() > height() / 2)
+            clientRect = QRect(0, height() / 2, width() / 2, height() / 2);
+        // front view
+        if (pixel.x() < width() / 2 && pixel.y() < height() / 2)
+            clientRect = QRect(0, 0, width() / 2, height() / 2);
+        // left view
+        if (pixel.x() > width() / 2 && pixel.y() < height() / 2)
+            clientRect = QRect(width() / 2, 0, width() / 2, height() / 2);
+        // isometric
+        if (pixel.x() > width() / 2 && pixel.y() > height() / 2)
+            clientRect = QRect(width() / 2, height() / 2, width() / 2, height() / 2);
+    }
+    else
+    {
+        // single viewport
+        clientRect = QRect(0, 0, width(), height());
+    }
+
+    return clientRect;
+}
+
+QVector3D GLView::get3dTranslationVectorFromMousePoints(const QPoint& start, const QPoint& end)
+{
+    QVector3D Z(0, 0, 0); // instead of 0 for x and y we need worldPosition.x() and worldPosition.y() ....
+    Z = Z.project(_viewMatrix * _modelMatrix, _projectionMatrix, getViewportFromPoint(start));
+    QVector3D p1(start.x(), height() - start.y(), Z.z());
+    QVector3D O = p1.unproject(_viewMatrix * _modelMatrix, _projectionMatrix, getViewportFromPoint(start));
+    QVector3D p2(end.x(), height() - end.y(), Z.z());
+    QVector3D P = p2.unproject(_viewMatrix * _modelMatrix, _projectionMatrix, getViewportFromPoint(start));
+    QVector3D OP = P - O;
+    return OP;
 }
 
 
