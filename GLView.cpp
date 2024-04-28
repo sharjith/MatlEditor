@@ -837,6 +837,14 @@ void GLView::mouseMoveEvent(QMouseEvent* e)
         if (_viewRange > 50000.0) _viewRange = 50000.0f;
         _currentViewRange = _viewRange;
 
+        // Translate to focus on mouse center
+        QPoint cen = getClientRectFromPoint(downPoint).center();
+        float sign = (downPoint.x() > _middleButtonPoint.x() || downPoint.y() < _middleButtonPoint.y()) ? 1.0f : -1.0f;
+        QVector3D OP = get3dTranslationVectorFromMousePoints(cen, _middleButtonPoint);
+        OP *= sign * 0.05f;
+        _camera->move(OP.x(), OP.y(), OP.z());
+        _currentTranslation = _camera->getPosition();
+
         resizeGL(width(), height());
 
         _middleButtonPoint = downPoint;
