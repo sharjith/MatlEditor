@@ -14,7 +14,7 @@ Spring::Spring(QOpenGLShaderProgram* prog, GLfloat sectionRadius, GLfloat coilRa
 	_turns(turns)
 {
 	_name = "Spring";
-	buildMesh(nSlices, nStacks);
+    buildMesh(nSlices, nStacks);
 }
 
 
@@ -58,4 +58,9 @@ Point Spring::pointAtParameter(const float& u, const float& v)
 
 	P.setParam(x, y, z);
 	return P;
+}
+
+void Spring::buildMesh(GLuint nSlices, GLuint nStacks)
+{
+    ParametricSurface::buildMesh(nSlices * _turns, nStacks);
 }

@@ -51,7 +51,7 @@
 using glm::vec3;
 using glm::mat4;
 
-GLView::GLView(QWidget *parent, const char * /*name*/) : QOpenGLWidget(parent, 0),
+GLView::GLView(QWidget *parent, const char * /*name*/) : QOpenGLWidget(parent),
     _textRenderer(nullptr),
     _sphericalHarmonicsEditor(nullptr),
     _superToroidEditor(nullptr),
@@ -383,7 +383,7 @@ void GLView::createGeometry()
     _meshStore.push_back(new TwistedPseudoSphere(_fgShader, 50.0f, 150.0f, 150.0f));
     _meshStore.push_back(new BreatherSurface(_fgShader, 15.0f, 150.0f, 150.0f));
 
-    Spring* spring = new Spring(_fgShader, 10.0f, 30.0f, 10.0f, 2.0f, 150.0f, 150.0f);
+    Spring* spring = new Spring(_fgShader, 10.0f, 30.0f, 10.0f, 2.0f, 50.0f, 150.0f);
     _meshStore.push_back(spring);
     _springEditor = new SpringEditor(spring, this);
     _springEditor->setWindowFlags(Qt::Tool | Qt::FramelessWindowHint);

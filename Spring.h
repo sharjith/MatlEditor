@@ -16,6 +16,9 @@ public:
 	virtual float lastVParameter() const ;
 	virtual Point pointAtParameter(const float& u, const float& v);
 	
+    virtual void buildMesh(GLuint nSlices, GLuint nStacks);
+
+
 private:
 	GLfloat _sectionRadius;
 	GLfloat _coilRadius;
