@@ -26,26 +26,26 @@ void SpringEditor::on_doubleSpinBoxSecRad_valueChanged(double val)
 {
 	_spring->_sectionRadius = val;
 	_spring->buildMesh(_spring->getSlices(), _spring->getStacks());
-	dynamic_cast<GLView*>(parent())->update();
+    dynamic_cast<GLView*>(parent())->updateViewBoundingSphere();
 }
 
 void SpringEditor::on_doubleSpinBoxCoilRad_valueChanged(double val)
 {
 	_spring->_coilRadius = val;
 	_spring->buildMesh(_spring->getSlices(), _spring->getStacks());
-	dynamic_cast<GLView*>(parent())->update();
+    dynamic_cast<GLView*>(parent())->updateViewBoundingSphere();
 }
 
 void SpringEditor::on_doubleSpinBoxPitch_valueChanged(double val)
 {
 	_spring->_pitch = val;
 	_spring->buildMesh(_spring->getSlices(), _spring->getStacks());
-	dynamic_cast<GLView*>(parent())->update();
+    dynamic_cast<GLView*>(parent())->updateViewBoundingSphere();
 }
 
 void SpringEditor::on_doubleSpinBoxTurns_valueChanged(double val)
 {
 	_spring->_turns = val;
 	_spring->buildMesh(_spring->getSlices(), _spring->getStacks());
-	dynamic_cast<GLView*>(parent())->update();
+    dynamic_cast<GLView*>(parent())->updateViewBoundingSphere();
 }
