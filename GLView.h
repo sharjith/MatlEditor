@@ -78,6 +78,8 @@ public:
 
 	bool _bWindowZoomActive;
 
+    void updateViewBoundingSphere();
+
 signals:
 	void modelChanged(int num);
 	void windowZoomEnded();

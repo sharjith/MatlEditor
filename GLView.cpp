@@ -255,11 +255,17 @@ void GLView::setProjection(ViewProjection proj)
     resizeGL(width(), height());
 }
 
+void GLView::updateViewBoundingSphere()
+{
+    _boundingSphere = _meshStore.at(_modelNum - 1)->getBoundingSphere();
+    _viewBoundingSphereDia = _boundingSphere.getRadius() * 2;
+    update();
+}
+
 void GLView::setModelNum(const int& num)
 {
     _modelNum = num;
-    _boundingSphere = _meshStore.at(_modelNum - 1)->getBoundingSphere();
-    _viewBoundingSphereDia = _boundingSphere.getRadius() * 2;
+    updateViewBoundingSphere();
     fitAll();
     //qDebug() << "Bounding Sphere Dia " << _viewBoundingSphereDia;
     update();
